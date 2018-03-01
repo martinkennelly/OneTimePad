@@ -18,14 +18,14 @@ public class OneTimePad {
      *
      */
 
-    public void Start() {
+    public static void Start() {
         /**<h1>OneTimePad.Start Method</h1>
          * Displays user menu with three options - Encode - Decode - Quit         *
          *  */
         menu(new Scanner(System.in));
     }
 
-    private void menu(Scanner scanner) {
+    private static void menu(Scanner scanner) {
         System.out.println("----------------------------------------");
         System.out.println("\t\t\tEncoder & Decoder");
         System.out.println("\t\t\tUsing One-Time Pads");
@@ -59,7 +59,7 @@ public class OneTimePad {
         }
     }
 
-    private void decodePreStage(Scanner scanner) {
+    private static void decodePreStage(Scanner scanner) {
         String key = null;
         while (key == null) {
             System.out.print("Enter a key for decryption: ");
@@ -95,7 +95,7 @@ public class OneTimePad {
         }
     }
 
-    private void encodePreStage(Scanner scanner) {
+    private static void encodePreStage(Scanner scanner) {
         int keyLength = 0;
         while (keyLength == 0) {
             System.out.println("Please enter a key length between 1 and 1000 inclusive or 'q' to quit");
@@ -147,7 +147,7 @@ public class OneTimePad {
         }
     }
 
-    private String decryptMessage(String message, String key) {
+    public static String decryptMessage(String message, String key) {
         message = message.toUpperCase();
         key = key.toUpperCase();
         String decryptedMessage = "";
@@ -166,7 +166,7 @@ public class OneTimePad {
         return decryptedMessage;
     }
 
-    private String encryptMessage(String message, String key) {
+    public static String encryptMessage(String message, String key) {
         message = message.toUpperCase();
         String encryptedMessage = "";
 
@@ -186,7 +186,7 @@ public class OneTimePad {
         return encryptedMessage;
     }
 
-    private String generateKey(int length) {
+    public static String generateKey(int length) {
         //java.util.Random class implements what is called a linear congruential generator
         //number [i+1] = (a * number [i] + c) mod m
         //Please do not rely on this software for advanced encryption
@@ -198,7 +198,7 @@ public class OneTimePad {
         return key;
     }
 
-    public boolean checkFile(String filePath) {
+    public static boolean checkFile(String filePath) {
         //Checks if text file exists
         //Checks if file is a text file with extention .txt
         if (filePath == null) {
@@ -218,4 +218,6 @@ public class OneTimePad {
         }
         return false;
     }
+
+
 }
